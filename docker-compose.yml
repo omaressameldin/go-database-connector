@@ -1,0 +1,13 @@
+version: '3.2'
+services:
+  lazy-panda-user-server:
+    build:
+      context: .
+      args:
+        - APP_SRC=${APP_SRC}
+        - MODS=${MODS}
+    command: sh -c "cp -r ${MODS}/. ${APP_SRC}"
+    volumes:
+      - type: bind
+        target: ${APP_SRC}
+        source: ./app
