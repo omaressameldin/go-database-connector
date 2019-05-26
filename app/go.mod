@@ -1,4 +1,4 @@
-module github.com/omaressameldin/lazy-panda-utils
+module github.com/omaressameldin/lazy-panda-utils/app
 
 go 1.12
 

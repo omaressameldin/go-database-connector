@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"cloud.google.com/go/firestore"
-	"github.com/omaressameldin/lazy-panda-utils/pkg/database"
+	"github.com/omaressameldin/lazy-panda-utils/app/pkg/database"
 )
 
 func createError(err error) error {
