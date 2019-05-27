@@ -22,7 +22,10 @@ func StartConnection(
 	bucket string,
 ) (*Firebase, error) {
 	opt := option.WithCredentialsFile(jsonConfig)
-	cfg := &firebase.Config{StorageBucket: bucket}
+	cfg := &firebase.Config{}
+	if bucket != "" {
+		cfg.StorageBucket = bucket
+	}
 	ctx := context.Background()
 
 	app, err := firebase.NewApp(ctx, cfg, opt)
