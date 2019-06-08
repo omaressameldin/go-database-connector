@@ -1,8 +1,8 @@
 image: golang:1.12.4-alpine
 
 stages:
-  — build
-  — test
+  - build
+  - test
 
 build-code:
   stage: build
