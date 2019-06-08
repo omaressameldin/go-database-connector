@@ -6,12 +6,7 @@ stages:
 
 before_script:
   - apk --update add git ca-certificates
-  - go mod download
-
-build-code:
-  stage: build
-  script:
-    - cd app && go mod download
+  - cd app && go mod download
 
 test-code:
   stage: test
