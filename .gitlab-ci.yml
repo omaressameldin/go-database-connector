@@ -1,0 +1,18 @@
+image: golang:1.12.4-alpine
+
+stages:
+  — build
+  — test
+
+build-code:
+  stage: build
+  script:
+    - apk --update add git ca-certificates
+    - go mod download
+
+test-code:
+  stage: test
+  script:
+    - cd app && CGO_ENABLED=0 GOOS=linux go test ./...
+    - go mod download
+    - cmp go.mod go.sum~ >/dev/null 2>&1
