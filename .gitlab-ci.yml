@@ -12,4 +12,8 @@ before_script:
 test-code:
   stage: test
   script:
+    - cp go.mod go.mod~
+    - cp go.sum go.sum~
     - CGO_ENABLED=0 GOOS=linux go test ./...
+    - cmp go.mod go.mod~ >/dev/null 2>&1 || fail
+    - cmp go.sum go.sum~ >/dev/null 2>&1 || fail
