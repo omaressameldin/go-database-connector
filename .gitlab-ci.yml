@@ -16,6 +16,6 @@ test-code:
     - cp go.sum go.sum~
     - CGO_ENABLED=0 GOOS=linux go test ./...
     - cmp go.mod go.mod~ >/dev/null 2>&1 || \
-      { echo "autogenreated mod file does not match!!"; exit; }
+      { echo "autogenreated mod file does not match"; exit; }
     - cmp go.sum go.sum~ >/dev/null 2>&1 || \
-      { echo "autogenreated sum file does not match!!"; exit; }
+      { echo "autogenreated sum file does not match"; exit; }
