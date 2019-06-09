@@ -21,3 +21,4 @@ test-code:
     - cmp go.sum go.sum~ >/dev/null 2>&1 || (
       echo "autogenreated sum file does not match"; exit 1;
       )
+    - rm go.mod~ go.sum~
