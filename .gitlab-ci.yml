@@ -6,9 +6,10 @@ stages:
 
 before_script:
   - apk --update add git ca-certificates
-  - cd app && go mod download
+  - cd app
+  - go mod download
 
 test-code:
   stage: test
   script:
-    - cd app && CGO_ENABLED=0 GOOS=linux go test ./...
+    - CGO_ENABLED=0 GOOS=linux go test ./...
