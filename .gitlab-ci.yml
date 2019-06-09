@@ -1,0 +1,24 @@
+image: golang:1.12.4-alpine
+
+stages:
+  - build
+  - test
+
+before_script:
+  - apk --update add git ca-certificates
+  - cd app
+  - go mod download
+
+test-code:
+  stage: test
+  script:
+    - cp go.mod go.mod~
+    - cp go.sum go.sum~
+    - CGO_ENABLED=0 GOOS=linux go test ./...
+    - cmp go.mod go.mod~ >/dev/null 2>&1 || (
+      echo "autogenreated mod file does not match"; exit 1;
+      )
+    - cmp go.sum go.sum~ >/dev/null 2>&1 || (
+      echo "autogenreated sum file does not match"; exit 1;
+      )
+    - rm go.mod~ go.sum~
