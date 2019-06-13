@@ -1,4 +1,4 @@
-# Database Package
+# Firebase Package
 This package contains the firebase package that implements [database interface](../database) and [uploader interface](https://github.com/omaressameldin/lazy-panda-upload-service/blob/master/core/pkg/uploader/uploader.go).
 
 ## Structure
