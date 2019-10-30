@@ -1,6 +1,6 @@
 version: '3.2'
 services:
-  lazy-panda-user-server:
+  database-connector:
     build:
       context: .
       args:
