@@ -3,7 +3,7 @@ package firebase
 import (
 	"fmt"
 
-	"github.com/omaressameldin/lazy-panda-utils/app/pkg/database"
+	"github.com/omaressameldin/go-database-connector/app/pkg/database"
 	"golang.org/x/net/context"
 	"google.golang.org/api/iterator"
 )

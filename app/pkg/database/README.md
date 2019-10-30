@@ -1,5 +1,5 @@
 # Database Package
-This package contains the database interface that should be used with any database related tasks in **Lazy Panda**
+This package contains the database interface that should be used with all database related tasks in services using the connector
 
 ## Structure
 The file structure is as follows:

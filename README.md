@@ -1,8 +1,11 @@
-# lazy-panda-utils
-Lazy Panda is a project aimed on managing employee time for consulting companies.
+# Go Database Connector
+This is a project that creates a go database connector to any kind of database.
+
 
 ## What this is
-- A monorepo of Go shared packages used by **Lazy Panda** services to upload files for **Lazy Panda** services using Go, and [Gitlab-ci](https://gitlab.com/omaressameldin/lazy-panda-utils) to run tests before merging
+- A Go database connector to implement adapters for dadtabase types.
+- Right now it only implements a connector for firebase wit hthe possibility of other extensions later on.
+- [Gitlab-ci](https://gitlab.com/omaressameldin/go-database-connector) is used to run tests on merging
 
 ## How to run
 - make sure you have **docker version: 18.x+** installed
