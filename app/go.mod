@@ -1,4 +1,4 @@
-module github.com/omaressameldin/lazy-panda-utils/app
+module github.com/omaressameldin/go-database-connector/app
 
 go 1.12
 
