@@ -1,6 +1,6 @@
 module github.com/omaressameldin/go-database-connector/app
 
-go 1.12
+go 1.13.4
 
 require (
 	cloud.google.com/go v0.39.0

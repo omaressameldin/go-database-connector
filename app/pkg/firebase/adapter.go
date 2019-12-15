@@ -8,6 +8,7 @@ import (
 	"google.golang.org/api/iterator"
 )
 
+// Create Firebase implementation of database connector create
 func (f *Firebase) Create(
 	validators []database.Validator,
 	key string,
@@ -27,6 +28,7 @@ func (f *Firebase) Create(
 	)
 }
 
+// Update Firebase implementation of database connector update
 func (f *Firebase) Update(
 	validators []database.Validator,
 	key string,
@@ -47,6 +49,7 @@ func (f *Firebase) Update(
 	)
 }
 
+// Read Firebase implementation of database connector read
 func (f *Firebase) Read(key string, model interface{}) error {
 	var err error
 	docSnap, err := f.client.Collection(f.Collection).Doc(key).Get(context.Background())
@@ -63,6 +66,7 @@ func (f *Firebase) Read(key string, model interface{}) error {
 	return nil
 }
 
+// Delete Firebase implementation of database connector delete
 func (f *Firebase) Delete(key string) error {
 	_, err := f.client.Collection(f.Collection).Doc(key).Delete(context.Background())
 	if err != nil {
@@ -75,11 +79,20 @@ func (f *Firebase) Delete(key string) error {
 	return nil
 }
 
+// ReadAll Firebase implementation of database connector read all
 func (f *Firebase) ReadAll(
 	genRefFn func() interface{},
 	appendFn func(interface{}),
+	filters []database.Filter,
 ) error {
-	docs := f.client.Collection(f.Collection).Documents(context.Background())
+
+	query := f.client.Collection(f.Collection).Query
+	for _, f := range filters {
+
+		query = query.Where(f.Field, string(f.Operator), f.Value)
+	}
+
+	docs := query.Documents(context.Background())
 
 	for {
 		docSnap, err := docs.Next()
