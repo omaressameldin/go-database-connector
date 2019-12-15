@@ -1,4 +1,4 @@
-FROM golang:1.12.4-alpine
+FROM golang:1.13.4-alpine
 ARG APP_SRC
 ARG MODS
 WORKDIR ${APP_SRC}
