@@ -2,6 +2,7 @@ package firebase
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/omaressameldin/go-database-connector/app/pkg/database"
 	"golang.org/x/net/context"
@@ -116,5 +117,21 @@ func (f *Firebase) ReadAll(
 		}
 		appendFn(recordRef)
 	}
+	return nil
+}
+
+func (f *Firebase) Authenticate(token string) error {
+	ctx := context.Background()
+	client, err := f.app.Auth(ctx)
+	if err != nil {
+		return err
+	}
+
+	payload, err := client.VerifyIDToken(ctx, token)
+	if err != nil {
+		return err
+	}
+
+	log.Println(payload)
 	return nil
 }

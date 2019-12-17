@@ -14,6 +14,7 @@ type Firebase struct {
 	Collection string
 	client     *firestore.Client
 	storage    *storage.Client
+	app        *firebase.App
 }
 
 func StartConnection(
@@ -47,6 +48,7 @@ func StartConnection(
 		collection,
 		client,
 		storage,
+		app,
 	}, nil
 }
 
