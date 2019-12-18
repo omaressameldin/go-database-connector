@@ -118,3 +118,23 @@ func (f *Firebase) ReadAll(
 	}
 	return nil
 }
+
+func (f *Firebase) Authenticate(token string) (*database.User, error) {
+	ctx := context.Background()
+	client, err := f.app.Auth(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	payload, err := client.VerifyIDToken(ctx, token)
+	if err != nil {
+		return nil, err
+	}
+
+	return &database.User{
+		Email:  payload.Claims["email"].(string),
+		Name:   payload.Claims["name"].(string),
+		Avatar: payload.Claims["picture"].(string),
+		ID:     payload.Claims["user_id"].(string),
+	}, nil
+}
