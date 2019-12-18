@@ -44,6 +44,13 @@ type Filter struct {
 	Value    interface{}
 }
 
+type User struct {
+	ID     string
+	Email  string
+	Name   string
+	Avatar string
+}
+
 // Connector database adapter interface
 type Connector interface {
 	CloseConnection() error
@@ -52,5 +59,5 @@ type Connector interface {
 	Read(key string, model interface{}) error
 	ReadAll(genRefFn func() interface{}, appendFn func(interface{}), filters []Filter) error
 	Delete(key string) error
-	Authenticate(token string) error
+	Authenticate(token string) (*User, error)
 }
