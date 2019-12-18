@@ -2,7 +2,6 @@ package firebase
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/omaressameldin/go-database-connector/app/pkg/database"
 	"golang.org/x/net/context"
@@ -131,10 +130,6 @@ func (f *Firebase) Authenticate(token string) (*database.User, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	log.Println(payload.Claims)
-	log.Println(payload.Issuer)
-	log.Println(payload.UID)
 
 	return &database.User{
 		Email:  payload.Claims["email"].(string),
