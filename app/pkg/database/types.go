@@ -35,6 +35,8 @@ const (
 	MoreThanOrEqual = ">="
 	// LessThanOrEqual Operator
 	LessThanOrEqual = "<="
+	// In Operator
+	In = "in"
 )
 
 // Filter struct for filtering queries
