@@ -26,7 +26,7 @@ const (
 	Equals Operator = "=="
 
 	// NotEquals Operator
-	NotEquals string = "!="
+	NotEquals = "!="
 	// MoreThan Operator
 	MoreThan = ">"
 	// LessThan Operator
